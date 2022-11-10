@@ -2,7 +2,7 @@ public class Solution {
     public boolean isAnagram(String s, String t) {
         int[] alphabet = new int[26];
         
-        for (int i = 0; i < s.length(); i++) alphabet[s.charAt(i) - 'a']++; //"cat"--> alphabet['c'-'a']==2 alphabet[2]++
+        for (int i = 0; i < s.length(); i++) alphabet[s.charAt(i) - 'a']++; //"cat"--> alphabet['c'-'a']==99-97=2 alphabet[2]++
         
         
         for (int i = 0; i < t.length(); i++) alphabet[t.charAt(i) - 'a']--;//"tac"--> alphabet['c'-'a']==2 alphabet[2]--
@@ -11,3 +11,16 @@ public class Solution {
         return true;
     }
 }
+//count[] is here to store occurrences of each letter from String passed as argument (at count[0] there will be stored number of occurences of 'a', at count[1] number of occurences of 'b',... at count[25] occurences of 'z').
+
+Now in the following line:
+
+char ch = s.charAt(i); 
+You store currently checked character from given String. (when i = 0, it's 't'). Keep in mind, that each char can be presented as int (it's an ASCII code) . To see list of all numeric values corresponding to each char, you can search for the ASCII table in the Internet (e. g. here, at column "Dec"). So for 't' it's 116.
+
+By saying:
+
+count[ch-'a']++;
+You mean count[116 - 97]++, it's count[19]++. Subtracting by 'a' is subtracting by 97 and it's here to help quickly find index in the array in which you store occurrences of currently checked char ch. Look, for 'a' it would be count['a' - 'a'] (count[0] - first index in count array), for 'z' count[122 - 97] (count[25] - last index in count array)
+
+//
