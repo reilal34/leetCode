@@ -1,0 +1,16 @@
+class Solution {
+    public int lengthOfLastWord(String s) {
+        
+        String lastWord="";
+        
+        String[] strArray = null;  
+        
+        strArray = s.split(" ");  
+        
+        lastWord=strArray[strArray.length-1].toString();
+        
+        return lastWord.length();
+
+
+    }
+}
