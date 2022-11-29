@@ -9,11 +9,13 @@ class Solution {
             
           min=Math.min(min, nums[i]);
              
-            if(min<nums[i]){
+         //   if(min<nums[i]){
             
             maxDifference=Math.max(maxDifference,nums[i]-min);
+      //  }
         }
-        }
+        
+        if(maxDifference==0) return -1;
         return maxDifference;
     }
 }
