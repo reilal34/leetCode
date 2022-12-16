@@ -1,0 +1,32 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        
+        int majority=nums.length/2;
+        int count=1;
+
+     Arrays.sort(nums);
+
+     if(nums.length==1){
+         return nums[0];
+     }
+
+     for(int i=1;i<nums.length;){
+
+       while(i<nums.length && nums[i]==nums[i-1]){
+            count++;
+            i++;
+        }
+
+        if(count>majority){
+        return nums[i-1];
+        } else{
+            count=1;
+            i++;
+        }
+    
+     }
+     return -1;
+        }
+            
+
+    }
