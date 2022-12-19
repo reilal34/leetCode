@@ -1,0 +1,33 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+
+    Map<Integer, Integer> sMap = new HashMap<Integer, Integer>();
+        
+                for (int i = 0; i < nums.length; i++) {
+ 
+                int key = nums[i];
+                    
+                 if (!sMap.containsKey(key)) {  // first time we've seen this string
+      sMap.put(key, 1);
+    }
+    else {
+      int count = sMap.get(key);
+      sMap.put(key, count + 1);}
+                }
+
+    int max = Collections.max(sMap.values());
+
+            for (int name : sMap.keySet()) 
+        {
+            // search  for value
+
+            if(sMap.get(name)==max){
+                    return name;
+            }
+           
+        }
+
+    return -1;
+    }        
+            }
+
