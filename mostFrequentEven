@@ -1,0 +1,39 @@
+class Solution {
+    public int mostFrequentEven(int[] nums) {
+
+        int maxFreq=-1;
+        int result=-1;
+        
+        Map<Integer, Integer> sMap = new HashMap<Integer, Integer>();
+        
+            for(int num:nums){
+
+                if(num%2==0){   
+
+                 if (!sMap.containsKey(num)) {  // first time we've seen this string
+      sMap.put(num, 1);
+    }
+    else {
+      int count = sMap.get(num);
+      sMap.put(num, count + 1);}
+                }
+                }
+
+   
+            for(int num:sMap.keySet()){ 
+
+            if(sMap.get(num)>maxFreq){
+
+                maxFreq=sMap.get(num);
+
+                result=num;
+            }
+            else if(sMap.get(num)==maxFreq && result>num)
+                result=num;                        
+                                
+        }
+        return result;
+     
+    }
+        
+    }
