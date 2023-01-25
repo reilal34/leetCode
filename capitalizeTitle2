@@ -1,0 +1,27 @@
+class Solution {
+    public String capitalizeTitle(String title) {
+
+        String words[] = title.split(" ");
+        String result="";
+
+      for(String token : words) {
+
+          if(token.length()>2){
+
+              token=token.substring(0,1).toUpperCase()+token.substring(1).toLowerCase();
+          }
+
+          else{
+
+              token=token.substring(0).toLowerCase();
+          }
+
+        
+          result=result+token+" ";
+        
+    }
+
+    result=result.trim();
+    return result;
+}
+}
